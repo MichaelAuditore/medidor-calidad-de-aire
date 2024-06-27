@@ -1,0 +1,267 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container-map {
+    position: relative;
+    margin-bottom: 35px;
+    /* Add spacing between maps */
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin-top: 20px;
+    width: 60%;
+}
+
+body {
+    background: linear-gradient(to bottom right, #e6e6e6, #000000, #1976D2);
+}
+
+
+h3.not-empty {
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-shadow: none;
+    background: linear-gradient(to bottom left, #000000, #1976D2, #666);
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, .5);
+    border: none;
+    font-variant: small-caps;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 30px;
+    height: 500px;
+    writing-mode: vertical-lr;
+    white-space: nowrap;
+    margin: 0;
+}
+
+iframe {
+    display: none;
+}
+
+canvas {
+    width: 100% !important;
+    background-color: #e6e6e6;
+}
+
+[id^="map"] {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 100%;
+    height: 500px;
+    z-index: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#station-details {
+    width: 30%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    display: none;
+    flex-flow: column nowrap;
+    padding: 20px;
+    height: 460px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: #FFF;
+}
+
+#indicator-map {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#city-details {
+    width: 30%;
+}
+
+header {
+    background-image: linear-gradient(to right, #1976D2, #000000);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    /* Alinear los elementos verticalmente */
+}
+
+.good {
+    background-color: green;
+}
+
+.moderate {
+    background-color: yellow;
+}
+
+.unhealthy-sensitive {
+    background-color: orange;
+}
+
+.unhealthy {
+    background-color: red;
+}
+
+.very-unhealthy {
+    background-color: purple;
+}
+
+.hazardous {
+    background-color: maroon;
+}
+
+.nav-links li {
+    padding: 10px;
+    text-align: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: darkcyan;
+    /* Añadimos un color de fondo sutil al pasar el mouse */
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line1,
+.line2,
+.line3 {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.leaflet-container .leaflet-control-attribution {
+    text-align: center;
+}
+
+.closeBtn {
+    align-self: flex-end;
+    background-color: #333; /* Darker black */
+    border: none;
+    color: #fff; /* White text color */
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Button hover effect */
+.closeBtn:hover {
+    background-color: #666; /* Lighter black */
+}
+
+
+@media screen and (max-width: 768px) {
+
+    [id^="map"] {
+        left: 0;
+        position: relative;
+        width: 90%;
+    }
+
+    .container-map {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #station-details {
+        position: absolute;
+        background: #FFFF;
+        opacity: 0.9;
+        width: 80%;
+        color: #000000!important;
+    }
+
+    h3.not-empty {
+        width: 90%;
+        height: 50px;
+        justify-content: center;
+        writing-mode: horizontal-tb;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        z-index: 4;
+        top: 7%;
+        /* Colocar los enlaces debajo del botón de hamburguesa */
+        right: 0;
+        /* Alinear los enlaces a la derecha */
+        background-image: linear-gradient(to right, #1976D2, #000000);
+        width: 100%;
+        /* Ajustar el ancho del menú */
+        flex-direction: column;
+        /* Colocar los enlaces uno debajo del otro */
+    }
+
+    nav,
+    nav a {
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Mostrar los enlaces cuando el menú está activo */
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger.active .line1 {
+        transform: rotate(-45deg);
+    }
+
+    .burger.active .line2 {
+        opacity: 0;
+    }
+
+    .burger.active .line3 {
+        transform: rotate(45deg) translate(-18px, -18px);
+    }
+}

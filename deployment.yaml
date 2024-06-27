@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-api
+  template:
+    metadata:
+      labels:
+        app: weather-api
+    spec:
+      containers:
+      - name: weather-api
+        image: gcr.io/cellular-block-422815-i7/weather-api@sha256:569c37f96755cf790cf23116e5006f5432fdca1ce941c2e96a6d88b22d356786
+        ports:
+        - containerPort: 5000

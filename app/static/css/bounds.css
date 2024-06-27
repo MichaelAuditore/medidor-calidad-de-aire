@@ -1,0 +1,29 @@
+/* Green marker */
+.marker-icon-green {
+    filter: hue-rotate(120deg);
+}
+
+/* Yellow marker */
+.marker-icon-yellow {
+    filter: hue-rotate(60deg);
+}
+
+/* Orange marker */
+.marker-icon-orange {
+    filter: hue-rotate(30deg);
+}
+
+/* Red marker */
+.marker-icon-red {
+    filter: hue-rotate(0deg);
+}
+
+/* Purple marker */
+.marker-icon-purple {
+    filter: hue-rotate(-30deg);
+}
+
+/* Maroon marker */
+.marker-icon-maroon {
+    filter: hue-rotate(-60deg);
+}

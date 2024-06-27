@@ -1,0 +1,116 @@
+<!-- En tu archivo index.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Quality Status</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        >
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/level.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bounds.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+    </head>
+    <header>
+        <h1>Quality Air</h1>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="70"
+            height="70"
+            viewBox="0 0 24 24"
+        >
+            <!-- Darker blue linear gradient background -->
+            <defs>
+                <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                >
+                    <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1"/>
+                    <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1"/>
+                </linearGradient>
+            </defs>
+            <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="url(#gradient)"
+            />
+            <!-- Cloud shape -->
+            <g fill="#ffffff">
+                <path d="M18.25 11c1.74 0 3.15 1.4 3.15 3.12 0 1.14-.64 2.11-1.57 2.55-.12 2.24-1.83 4-3.83 4h-8c-2.21 0-4-1.79-4-4s1.79-4 4-4h.13c.1-.58.41-1.09.85-1.47-.09-.5-.13-1.02-.13-1.53 0-3.87 3.2-7 7.13-7 2.45 0 4.55 1.2 5.87 3-.36.3-.64.68-.8 1.1 1.23.62 2.05 1.85 2.05 3.3 0 1.81-1.5 3.28-3.34 3.28z"/>
+            </g>
+        </svg>
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <div class="air-quality">
+            <div class="header">Air Quality Levels</div>
+            <div class="level excellent">
+                <span>Excellent</span>
+                <span class="value">0-50</span>
+            </div>
+            <div class="level moderate">
+                <span>Moderate</span>
+                <span class="value">51-100</span>
+            </div>
+            <div class="level sensitive">
+                <span>Unhealthy for Sensitive Groups</span>
+                <span class="value">101-150</span>
+            </div>
+            <div class="level unhealthy">
+                <span>Unhealthy</span>
+                <span class="value">151-200</span>
+            </div>
+            <div class="level very-unhealthy">
+                <span>Very Unhealthy</span>
+                <span class="value">201-300</span>
+            </div>
+            <div class="level hazardous">
+                <span>Hazardous</span>
+                <span class="value">>300</span>
+            </div>
+        </div>
+        <div class="content">
+            <div id="indicator-map">
+                <div class="container-map">
+                    <h3 id="titleusepa-pm25"></h3>
+                    <div id="mapusepa-pm25"></div>
+                </div>
+                <div id="station-details"></div>
+            </div>
+        </div>
+        <div id="loader-container">
+            <div id="loader"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/air_quality.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+    </body>
+</html>
